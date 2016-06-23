@@ -199,5 +199,12 @@ void oscEvent(OscMessage oscMsg){
       cellSize = (int) oscMsg.get(2).floatValue();
     }
   }
-  
+  // SAVE PHOTO
+  if(oscMsg.checkAddrPattern("/photo") == true){
+    if(oscMsg.checkTypetag("i")){
+      int num = oscMsg.get(0).intValue();
+      String date = nf(year(),4) +nf(month(),2) +nf(day(),2);
+      save(date+"_photo"+num+".png");
+    }
+  }
 }
