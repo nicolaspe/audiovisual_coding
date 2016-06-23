@@ -1,104 +1,108 @@
-#N canvas 64 62 827 452 10;
-#X obj 18 -1 vradio 15 1 0 5 empty empty MODE_SELECTION 0 -8 0 10 -262144
+#N canvas 1 32 827 452 10;
+#X obj 18 4 vradio 15 1 0 5 empty empty MODE_SELECTION 0 -8 0 10 -262144
 -1 -1 0;
-#X text 36 -2 NORMAL;
-#X text 35 13 VERTICAL MIRROR;
-#X text 35 29 HORIZONTAL MIRROR;
-#X text 35 44 3 BARS;
-#X text 35 59 MOTION SENSOR;
-#X msg 107 263 connect localhost 10115;
-#X obj 107 242 loadbang;
-#X obj 366 101 vradio 15 1 0 3 empty empty Threshold_option 0 -8 0
+#X text 36 3 NORMAL;
+#X text 35 18 VERTICAL MIRROR;
+#X text 35 34 HORIZONTAL MIRROR;
+#X text 35 49 3 BARS;
+#X text 35 64 MOTION SENSOR;
+#X msg 107 268 connect localhost 10115;
+#X obj 107 247 loadbang;
+#X obj 366 106 vradio 15 1 0 3 empty empty Threshold_option 0 -8 0
 10 -262144 -1 -1 0;
-#X text 386 99 Soft mode;
-#X text 386 115 BnW mode;
-#X text 386 130 Strong mode;
-#X obj 18 167 t b list b;
-#X msg 122 284 disconnect;
-#X obj 107 361 sendOSC;
-#X obj 41 104 hradio 15 1 0 2 empty empty Reflected_side 0 -8 0 10
+#X text 386 104 Soft mode;
+#X text 386 120 BnW mode;
+#X text 386 135 Strong mode;
+#X obj 18 172 t b list b;
+#X msg 122 289 disconnect;
+#X obj 107 366 sendOSC;
+#X obj 41 109 hradio 15 1 0 2 empty empty Reflected_side 0 -8 0 10
 -262144 -1 -1 0;
-#X obj 41 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 41 131 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 482 14 tgl 15 0 empty empty TINT 17 7 0 10 -262144 -1 -1 0 1
+#X obj 482 19 tgl 15 0 empty empty TINT 17 7 0 10 -262144 -1 -1 0 1
 ;
-#X obj 464 -18 tgl 15 0 empty empty SHARPEN 17 7 0 10 -262144 -1 -1
+#X obj 464 -13 tgl 15 0 empty empty SHARPEN 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj 606 -18 tgl 15 0 empty empty GRAYSCALE 17 7 0 10 -262144 -1
+#X obj 606 -13 tgl 15 0 empty empty GRAYSCALE 17 7 0 10 -262144 -1
 -1 0 1;
-#X obj 624 13 tgl 15 0 empty empty CRYSTAL_DIST 17 7 0 10 -262144 -1
+#X obj 624 18 tgl 15 0 empty empty CRYSTAL_DIST 17 7 0 10 -262144 -1
 -1 0 1;
-#X obj 309 190 t b list b;
-#X obj 309 -3 vradio 15 1 0 3 empty empty THRESHOLD 0 -8 0 10 -262144
+#X obj 309 195 t b list b;
+#X obj 309 2 vradio 15 1 0 3 empty empty THRESHOLD 0 -8 0 10 -262144
 -1 -1 0;
-#X text 330 -4 Off;
-#X text 330 11 Threshold;
-#X text 330 26 Inverted;
-#X msg 309 232 send /eff/thres \$1 \$2 \$3;
-#X floatatom 107 383 5 0 0 0 - - -;
-#X floatatom 146 383 5 0 0 0 - - -;
-#X obj 315 146 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X text 330 1 Off;
+#X text 330 16 Threshold;
+#X text 330 31 Inverted;
+#X msg 309 237 send /eff/thres \$1 \$2 \$3;
+#X floatatom 107 388 5 0 0 0 - - -;
+#X floatatom 146 388 5 0 0 0 - - -;
+#X obj 337 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 340 66 hsl 100 15 10 90 0 0 empty empty Threshold_limit -2 -8
-0 10 -262144 -1 -1 0 1;
-#X msg 127 336 [;
-#X msg 221 336 ];
-#X obj 655 46 hsl 100 15 0 12 0 0 empty empty Polygon_sides -2 -8 0
-10 -262144 -1 -1 0 1;
-#X obj 684 78 hsl 100 15 8 20 0 0 empty empty Cell_size -2 -8 0 10
--262144 -1 -1 0 1;
-#X obj 482 321 t b list b;
-#X msg 482 363 send /eff/tint \$1 \$2;
-#X obj 624 321 t b list b;
-#X msg 624 363 send /eff/crystal \$1 \$2 \$3;
-#X obj 464 168 pack f;
-#X obj 624 300 pack f f f;
-#X obj 309 169 pack f f f;
-#X obj 464 189 t b list b;
-#X obj 606 168 pack f;
-#X obj 606 189 t b list b;
-#X msg 606 231 send /eff/gray \$1;
-#X msg 464 232 send /eff/sharp \$1;
-#X obj 503 281 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 340 71 hsl 100 15 10 90 0 0 empty empty Threshold_limit -2 -8
+0 10 -262144 -1 -1 3800 1;
+#X msg 127 341 [;
+#X msg 221 341 ];
+#X obj 655 51 hsl 100 15 0 12 0 0 empty empty Polygon_sides -2 -8 0
+10 -262144 -1 -1 3400 1;
+#X obj 684 83 hsl 100 15 8 20 0 0 empty empty Cell_size -2 -8 0 10
+-262144 -1 -1 3400 1;
+#X obj 482 326 t b list b;
+#X msg 482 368 send /eff/tint \$1 \$2;
+#X obj 624 326 t b list b;
+#X msg 624 368 send /eff/crystal \$1 \$2 \$3;
+#X obj 464 173 pack f;
+#X obj 624 305 pack f f f;
+#X obj 309 174 pack f f f;
+#X obj 464 194 t b list b;
+#X obj 606 173 pack f;
+#X obj 606 194 t b list b;
+#X msg 606 236 send /eff/gray \$1;
+#X msg 464 237 send /eff/sharp \$1;
+#X obj 503 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 652 281 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 652 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 681 281 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 681 286 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 503 43 vsl 15 100 0 359 0 0 empty empty hue 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 482 300 pack;
-#X obj 156 -3 grid grid1 120 0 1 120 0 1 1 0.001 0.001 10 10 217 56
+#X obj 503 48 vsl 15 100 0 359 0 0 empty empty hue 0 -9 0 10 -262144
+-1 -1 7600 1;
+#X obj 482 305 pack;
+#X obj 156 2 grid grid1 120 0 1 120 0 1 1 0.001 0.001 10 10 221 74
 ;
-#X obj 127 313 r msgStart;
-#X obj 221 313 r msgEnd;
-#X obj 157 336 r msgBody;
-#X obj 18 146 pack f f f f;
-#X obj 366 211 s msgStart;
-#X obj 309 211 s msgEnd;
-#X obj 309 253 s msgBody;
-#X obj 521 210 s msgStart;
-#X obj 464 210 s msgEnd;
-#X obj 539 342 s msgStart;
-#X obj 482 342 s msgEnd;
-#X obj 681 342 s msgStart;
-#X obj 624 342 s msgEnd;
-#X obj 663 210 s msgStart;
-#X obj 606 210 s msgEnd;
-#X obj 464 253 s msgBody;
-#X obj 606 252 s msgBody;
-#X obj 482 384 s msgBody;
-#X obj 624 384 s msgBody;
-#X obj 75 188 s msgStart;
-#X obj 18 188 s msgEnd;
-#X obj 18 230 s msgBody;
-#X text 163 -20 CAMERA CENTER;
-#X msg 18 209 send /mode \$1 \, send /modeOpt \$2 \$3 \$4;
+#X obj 127 318 r msgStart;
+#X obj 221 318 r msgEnd;
+#X obj 157 341 r msgBody;
+#X obj 18 151 pack f f f f;
+#X obj 366 216 s msgStart;
+#X obj 309 216 s msgEnd;
+#X obj 309 258 s msgBody;
+#X obj 521 215 s msgStart;
+#X obj 464 215 s msgEnd;
+#X obj 539 347 s msgStart;
+#X obj 482 347 s msgEnd;
+#X obj 681 347 s msgStart;
+#X obj 624 347 s msgEnd;
+#X obj 663 215 s msgStart;
+#X obj 606 215 s msgEnd;
+#X obj 464 258 s msgBody;
+#X obj 606 257 s msgBody;
+#X obj 482 389 s msgBody;
+#X obj 624 389 s msgBody;
+#X obj 75 193 s msgStart;
+#X obj 18 193 s msgEnd;
+#X obj 18 235 s msgBody;
+#X text 163 -15 CAMERA CENTER;
+#X msg 18 214 send /mode \$1 \, send /modeOpt \$2 \$3 \$4;
+#X obj 308 351 r msgBody;
+#X obj 308 372 print;
+#X obj 366 155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 0 0 56 0;
 #X connect 6 0 14 0;
 #X connect 7 0 6 0;
-#X connect 8 0 29 0;
 #X connect 8 0 41 2;
+#X connect 8 0 79 0;
 #X connect 12 0 73 0;
 #X connect 12 1 76 0;
 #X connect 12 2 72 0;
@@ -161,3 +165,5 @@
 #X connect 55 0 14 0;
 #X connect 56 0 12 0;
 #X connect 76 0 74 0;
+#X connect 77 0 78 0;
+#X connect 79 0 41 0;

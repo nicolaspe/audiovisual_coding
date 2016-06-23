@@ -104,7 +104,7 @@ class VisualP {
   
   PImage ThreeBars(PImage img, float posX){
     PImage bar = new PImage(img.width, img.height);
-    int lBound = constrain((int) posX-img.width/6, 0, img.width*5/6-1);
+    int lBound = constrain((int) posX-img.width/6, 0, img.width*2/3-1);
     //int rBound = lBound+img.width/6;
     for(int x=0; x<img.width; x++){
       for(int y=0; y<img.height; y++){
@@ -161,6 +161,7 @@ class VisualP {
   /* Creates a crystalized effect from the current image */
   PImage Crystal(PImage img, int sides, int cellSize){
     noiseSeed(seed);                // Loads noise seed
+    if(cellSize <= 0){ cellSize = 10;}  // error prevention
     PImage crystals = new PImage(img.width, img.height);  // new image
     int cols = img.width/cellSize;  // Number of columns
     int rows = img.height/cellSize; // Number of rows
@@ -299,7 +300,7 @@ class VisualP {
   }
   PImage Tint(PImage img, int hue){
     colorMode(HSB, 360, 100, 100);
+    tint(color(hue, 100, 100));
     return img;
   }
-  
 }
