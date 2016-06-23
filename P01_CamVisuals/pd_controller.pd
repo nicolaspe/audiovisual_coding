@@ -14,6 +14,14 @@
 #X obj 47 156 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 159 19 CAMERA CENTER;
+#X obj 30 492 sendOSC;
+#X msg 30 396 connect localhost 10115;
+#X msg 37 417 disconnect;
+#X obj 107 438 r msgStart;
+#X obj 175 438 r msgEnd;
+#X msg 107 459 [;
+#X msg 175 459 ];
+#X obj 45 438 r msgBody;
 #X connect 0 0 6 0;
 #X connect 7 0 6 2;
 #X connect 7 0 9 0;
@@ -22,3 +30,10 @@
 #X connect 8 0 9 0;
 #X connect 8 0 6 1;
 #X connect 9 0 6 0;
+#X connect 12 0 11 0;
+#X connect 13 0 11 0;
+#X connect 14 0 16 0;
+#X connect 15 0 17 0;
+#X connect 16 0 11 0;
+#X connect 17 0 11 0;
+#X connect 18 0 11 0;
