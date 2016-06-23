@@ -1,0 +1,40 @@
+#N canvas 37 32 840 612 10;
+#X obj 32 29 vradio 15 1 0 5 empty empty MODE_SELECTOR 0 -8 0 10 -262144
+-1 -1 0;
+#X text 55 28 NORMAL;
+#X text 55 44 VERTICAL MIRROR;
+#X text 55 59 HORIZONTAL MIRROR;
+#X text 55 74 3 BARS;
+#X text 55 88 MOTION SENSOR;
+#X obj 55 129 hradio 15 1 0 2 empty empty MIRROR_REFLECTION 0 -8 0
+10 -262144 -1 -1 0;
+#X obj 32 171 pack f f f f;
+#X obj 175 32 grid grid1 120 0 1 120 0 1 1 0 0 10 10 -13 -33;
+#X text 177 13 CAMERA CENTER;
+#X obj 55 152 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 441 loadbang;
+#X msg 30 462 connect localhost 10115;
+#X obj 30 550 sendOSC;
+#X msg 38 483 disconnect;
+#X msg 108 525 [;
+#X msg 176 525 ];
+#X obj 108 504 r msgStart;
+#X obj 176 504 r msgEnd;
+#X obj 46 504 r msgBody;
+#X connect 0 0 7 0;
+#X connect 6 0 7 1;
+#X connect 6 0 10 0;
+#X connect 8 0 10 0;
+#X connect 8 0 7 2;
+#X connect 8 1 7 3;
+#X connect 8 1 10 0;
+#X connect 10 0 7 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 0;
+#X connect 16 0 13 0;
+#X connect 17 0 15 0;
+#X connect 18 0 16 0;
+#X connect 19 0 13 0;
