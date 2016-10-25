@@ -8,7 +8,8 @@ var stepTime;   // variable that stores the time when a step sound must be playe
 var button;
 var textStep;
 var textBack;
-var curFrame;
+var startTime;
+var playTime;
 
 function preload(){
   vid = createVideo('walkNY_noSound.mp4');  // video files
@@ -34,20 +35,18 @@ function preload(){
 function setup() {
   createCanvas(600,340);
   vid.hide();
-  curFrame = 0;
   frameRate(48);
-  // button = createButton('Play');
-  // button.mousePressed(toggleVid); // button listener
-  
+  startTime = millis();
+  playTime = 0;
+  stepTime = [];
+  stepTime = [];
 }
 
 function toggleVid() {
   if(playing){
     vid.pause();
-    // button.html('Play');
   } else {
     vid.loop();
-    // button.html('Pause');
   }
   playing = !playing;
 }
@@ -70,8 +69,11 @@ function draw() {
     text("Step: "       +curStep +" - " +textStep[curStep], 390,40);
     text("Background: " +curBack +" - " +textBack[curBack], 350,60);
   }
-  text("Frame: " + curFrame, 20,320);
-  if(playing){ curFrame++;}
+  if(playing){ 
+    playTime += millis() - startTime;
+    startTime = millis();
+  }
+  text(startTime +" | " +playTime, 20,320);
 }
 
 function keyPressed(){
@@ -80,6 +82,7 @@ function keyPressed(){
     toggleVid();
     toggleStep();
     toggleBack();
+    startTime = millis();
   } else if(key == 1){  // CYCLE STEP
     if(curStep!=0){ audioStep[curStep].stop();}
     curStep++;
