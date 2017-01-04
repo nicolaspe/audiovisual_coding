@@ -8,7 +8,7 @@ var col_ci;
 var entropy = 0.5;
 
 function setup() {
-  createCanvas(400,400);
+  createCanvas(window.innerWidth, window.innerHeight);
   
   colorMode(HSB, 360, 100, 100, 100);
   col_bg = color(52,22,99);
@@ -34,4 +34,8 @@ function draw() {
   noStroke();
   fill(col_ci);
   ellipse(width/2, height/2, 200, 200);
+}
+
+window.onresize = function(){
+  resizeCanvas(windowWidth, windowHeight);
 }
