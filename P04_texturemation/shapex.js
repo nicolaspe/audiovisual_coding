@@ -18,7 +18,7 @@ function shapex(px, py){
     var v = p5.Vector.fromAngle(angle);
     v.setMag(len);
     this.points.push(v);
-    print(v.x + " | " + v.y);
+    // print(v.x + " | " + v.y);
   }
 
   this.update = function(){
