@@ -17,7 +17,7 @@ function grassy(px, l, c){
     fill(this.col);
 
     push();
-    translate(this.coord.x, windowHeight);
+    translate(this.coord.x*windowWidth, windowHeight);
     beginShape();
     vertex(0,0);
     bezierVertex(0,0, 0,-this.len/2, -this.top,-l);

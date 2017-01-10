@@ -59,7 +59,7 @@ function createScratches(){
 function createGrass() {
   grass = [];
   for (var i = 0; i < nGr; i++) {
-    var x = random(width);
+    var x = random(0,1);
     var l = random(40,70);
     var c = color(col_gr, random(6,20), random(80,99));
     var g = new grassy(x, l, c);
